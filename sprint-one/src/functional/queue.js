@@ -15,8 +15,11 @@ var Queue = function() {
   someInstance.dequeue = function() {
     if (stackSize) {
       var toBeDeleted = someInstance[0];
-      delete someInstance[0];
       stackSize--;
+      for (var i = 0; i < stackSize; i++) {
+        someInstance[i] = someInstance[i + 1];
+      }
+      delete someInstance[stackSize];
       return toBeDeleted;
     }
   };
