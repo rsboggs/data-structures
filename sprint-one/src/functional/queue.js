@@ -8,6 +8,7 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
+    stackSize++;
   };
 
   someInstance.dequeue = function() {
