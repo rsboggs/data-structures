@@ -23,7 +23,7 @@ treeMethods.contains = function(target) {
       found = true;
     } else {
       for(var i = 0; i < tree.children.length; i++) {
-        return search(tree.children[i]);
+        search(tree.children[i]);
       }
     }
   };
