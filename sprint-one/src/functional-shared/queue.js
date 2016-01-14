@@ -9,7 +9,11 @@ var Queue = function() {
 var queueMethods = {
   size: function() {
     return this.stackSize;
+  },
+  enqueue: function(val) {
+    this.stackSize++;
   }
+
 };
 
 
