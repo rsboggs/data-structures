@@ -13,6 +13,13 @@ Stack.prototype.push = function(val) {
   this.stackSize++;
 };
 
-
+Stack.prototype.pop = function() {
+  if(this.stackSize) {
+    this.stackSize--;
+    var temp = this[this.stackSize];
+    delete this[this.stackSize];
+    return temp;
+  }
+};
 
 
