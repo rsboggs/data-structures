@@ -14,7 +14,9 @@ var queueMethods = {
     this.stackSize++;
   },
   dequeue: function() {
-    this.stackSize--;
+    if (this.stackSize) {
+      this.stackSize--;
+    }
   }
 };
 
