@@ -12,3 +12,15 @@ Queue.prototype.enqueue = function(val) {
   this[this.stackSize] = val;
   this.stackSize++;
 };
+
+Queue.prototype.dequeue = function() {
+  if (this.stackSize) {
+    this.stackSize--;
+    var temp = this[0];
+    for (var i = 0; i < this.stackSize; i++) {
+      this[i] = this[i + 1];
+    }
+    delete this[this.stackSize];
+    return temp;
+  }
+};
