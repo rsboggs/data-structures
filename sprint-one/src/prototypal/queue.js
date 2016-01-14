@@ -12,6 +12,9 @@ var queueMethods = {
   },
   enqueue: function(val) {
     this.stackSize++;
+  },
+  dequeue: function() {
+    this.stackSize--;
   }
 };
 
