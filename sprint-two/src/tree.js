@@ -21,6 +21,7 @@ treeMethods.contains = function(target) {
   var search = function(tree) {
     if(tree.value === target) {
       found = true;
+      return;
     } else {
       for(var i = 0; i < tree.children.length; i++) {
         search(tree.children[i]);
