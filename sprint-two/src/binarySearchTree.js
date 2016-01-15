@@ -24,7 +24,21 @@ BinarySearchTree.prototype.insert = function(val) {
 };
 
 BinarySearchTree.prototype.contains = function(val) {
-
+  if(this.value === val) {
+    return true;
+  } else {
+    if(this.left !== null) {
+      if(this.left.contains(val)) {
+        return true;
+      }
+    } 
+    if(this.right !== null) {
+      if(this.right.contains(val)) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(cb, val) {
