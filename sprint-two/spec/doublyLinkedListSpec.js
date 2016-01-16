@@ -50,11 +50,47 @@ describe('doublyLinkedList', function() {
   });
 
   it('should not contain a value that was removed', function() {
-    doublyLinkedList.addToTail(10);
-    doublyLinkedList.addToTail(5);
-    doublyLinkedList.addToTail(8);
-    console.log(doublyLinkedList.head.next);
+    doublyLinkedList.addToTail(1);
+    doublyLinkedList.addToTail(2);
+    doublyLinkedList.addToTail(3);
     doublyLinkedList.removeHead();
-    expect(doublyLinkedList.contains(10)).to.equal(false);
+    expect(doublyLinkedList.contains(1)).to.equal(false);
+  });
+
+  it('should have method addToHead and removeTail', function() {
+    expect(doublyLinkedList.addToHead).to.be.a('function');
+    expect(doublyLinkedList.removeTail).to.be.a('function');
+  });
+
+  it('should set a new head when addToHead is called', function() {
+    doublyLinkedList.addToHead(10);
+    expect(doublyLinkedList.head.value).to.equal(10);
+    doublyLinkedList.addToHead(1);
+    doublyLinkedList.addToHead(2);
+    doublyLinkedList.addToHead(3);
+    expect(doublyLinkedList.head.value).to.equal(3);
+  });
+
+  it('should remove tail when removeTail is called', function() {
+    doublyLinkedList.addToHead(1);
+    doublyLinkedList.addToHead(2);
+    doublyLinkedList.addToHead(3);
+    expect(doublyLinkedList.removeTail()).to.equal(1);
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
