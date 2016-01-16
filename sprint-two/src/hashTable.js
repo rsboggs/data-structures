@@ -39,15 +39,16 @@ HashTable.prototype.insert = function(k, v) {
   //at end set bucket
   this._storage.set(index, bucket);
   this._counter++;
-  // console.log(this._counter);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var temp = this._storage.get(index);
-  for(var i = 0; i < temp.length; i++) {
-    if(temp[i][0] === k) {
-      return temp[i][1];
+  if (temp !== undefined) {
+    for(var i = 0; i < temp.length; i++) {
+      if(temp[i][0] === k) {
+        return temp[i][1];
+      }
     }
   }
 };
@@ -58,7 +59,6 @@ HashTable.prototype.remove = function(k) {
   for (var i = 0; i < temp.length; i++) {
     if (temp[i][0] === k) {
       temp.splice(i, 1);
-      return true;
     }
   }
   this._storage.set(index, temp);
@@ -73,6 +73,7 @@ HashTable.prototype.rehash = function(newLimit) {
   this._storage = LimitedArray(newLimit);
   var temp_length = this._limit;
   this._limit = newLimit;
+  this._counter = 0;
 
   for(var i = 0; i < temp_length; i++) {
     var bucket = temp.get(i);
@@ -82,7 +83,6 @@ HashTable.prototype.rehash = function(newLimit) {
       }
     }
   }
-
 };
 
 
